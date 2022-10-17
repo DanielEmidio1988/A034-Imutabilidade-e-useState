@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
-import styled, {createGlobalStyle} from 'styled-components'
-import PokemonCard from './Components/PokemonCard/PokemonCard';
+import React from 'react'
+import {useState} from "react"
+import {createGlobalStyle} from "styled-components"
+import styled from "styled-components"
+import PokemonCard from "./Components/PokemonCard/PokemonCard";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -24,13 +26,28 @@ function App() {
     id: 0
   })
 
+  const [pokemon2, setPokemon2] = useState({
+    name: "Growlithe",
+    type: "Fire",
+    evolved: false,
+    weight: 19,
+    color: 'orangered',
+    image: 'https://archives.bulbagarden.net/media/upload/thumb/3/3d/058Growlithe.png/250px-058Growlithe.png',
+    id: 58
+  })
+
   // Para fazer seus próximos pokemons, crie novos estados!
 
   return ( <>
   <GlobalStyles/>
     <FlexContainer>
       {/* Aqui neste componente, passe as props. Lembre-se que também é possivel passar a função de setState via props! */}
-      <PokemonCard/>
+      <PokemonCard
+      pokemon={pokemon}
+      setPokemon={setPokemon}/>
+      <PokemonCard
+      pokemon={pokemon2}
+      setPokemon={setPokemon2}/>
       {/* Crie aqui seus próximos pokemons! */}
     </FlexContainer>
   </>
